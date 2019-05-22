@@ -1,0 +1,39 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+.pagination-section{
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px;
+    .pages{
+        margin:0 10px;
+        color:#fff;
+        .pageIndex{
+            font-weight: bold;
+            color:@primary-color;
+        }
+    }
+    .pagination-lists{
+        .center();
+        .item{
+            margin: 0 5px;
+            &.active,&:hover{
+                >a{
+                    background:@primary-color;
+                    color:#fff;
+                }
+            }
+            >a{
+                min-width: 40px;
+                height:40px;
+                padding: 10px;
+                border-radius: 50%;
+                line-height: 1.5;
+                text-align: center;
+                color:@font-color;
+                display: block;
+                background: #fff;
+                transition: background .3s ease;
+            }
+        }
+    }
+    }

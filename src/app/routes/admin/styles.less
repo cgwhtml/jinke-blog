@@ -1,0 +1,71 @@
+@import "~styles/vars.less";
+
+.admin-section{
+    padding: 20px;
+    .jinke-modal{
+        width:80%;
+        height:90vh;
+        @media screen and (max-width:768px){
+            height:560px;
+        }
+        @media screen and (max-width:320px){
+            height:480px;
+        }
+    }
+    
+    /*竖屏判断*/
+    @media screen and (max-width:768px) and (orientation:portrait){
+        &:after{
+            content:'portrait';
+            display: none;
+        }
+    }
+    .edit-textarea{
+        max-width: 90vw;
+        min-width: 270px;
+        max-height: 90vh;
+        min-height:200px;
+        display: block;
+        margin: 0 auto 20px auto;
+        resize: none;
+        border:1px solid @border-color;
+        padding: 10px;
+        height:43vh;
+        overflow-y: auto;
+        @media screen and (max-width:768px){
+            height:200px;
+        }
+    }
+    .delete-link{
+        margin-left:10px;
+        color:#fff;
+        cursor:pointer;
+        &:hover{
+            color:@error-color
+        }
+    }
+    .title{
+        text-align: center;
+        color:@primary-color;
+    }
+    table{
+        width:100%;
+        color:#fff;
+        border:1px solid #444;
+        thead{
+            td{
+                border:1px solid #444;
+            }
+        }
+        td{
+            padding: 5px 0;
+            max-width:100px;
+            max-height:30px;
+            overflow: hidden;
+            text-align: center;
+        }
+    }
+    .admin-pagination{
+        margin-top:10px;
+    }
+}

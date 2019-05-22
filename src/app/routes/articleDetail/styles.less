@@ -1,0 +1,274 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+
+.article-detail-container{
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+}
+.article-detail{
+    margin:10px 0;
+    background-color: #fff;
+    padding: 20px;
+    color:#444;
+    animation: articleDetailAnimate 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+    pre{
+        padding: 0 1em 0 1em;
+        margin:2em 0;
+        overflow: auto;
+        word-wrap: break-word;
+    }
+    .content{
+        color:@article-content-color;
+        padding:20px 0;
+        a{
+            text-decoration: underline !important;
+        }
+    }
+    .share-section{
+        text-align:right;
+        margin-top:30px;
+        @media screen and (max-width:768px){
+            text-align:center;
+        }
+    }
+    .author{
+        color:@article-info-color;
+    }
+    .isLike{
+        background:@primary-color !important;
+        color:#fff !important;
+    }
+
+    .like{
+        cursor: pointer;
+        color:@primary-color;
+        border:1px solid @primary-color;
+        border-radius: 4px;
+        justify-content: center;
+        flex:1;
+        display: inline-block;
+        padding: 0 16px;
+        font-size:14px;
+        line-height: 32px;
+        text-align: center;
+        background: none;
+        min-height: 36px;
+        outline: none;
+        position: relative;
+        .like-tip{
+            position: absolute;
+            color:@error-color;
+            top:0;
+            right:0;   
+            font-weight: bold;
+            animation: articleLikeTipAnimate .5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        }
+        i{
+            margin-right:8px;
+        }
+        &:active{
+            background: @primary-color;
+            color:#fff;
+            animation: articleLikeAnimate 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+        }
+    }
+    .pv{
+        margin-left: 30px;
+        vertical-align: bottom;
+    }
+
+}
+@keyframes articleLikeTipAnimate{
+    from{
+        transform: translate3d(0,-50px,0)
+    }
+    to{
+         transform: translate3d(0,0,0)
+    }
+}
+@keyframes articleLikeAnimate{
+    from{
+        transform: scale(1.1)
+    }
+    20%{
+        transform: rotateY(5deg)
+    }
+    40%{
+        transform: rotateY(-5deg)
+    }
+    to{
+        transform: scale(0) rotate(0deg)
+    }
+}
+@keyframes articleDetailAnimate{
+    from{
+        opacity: 0;
+        transform: translate3d(100px,0,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+@keyframes commentListAnimate{
+    from {
+        opacity: 0;
+        transform:  translate3d(0,100px,0)
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0)
+    }
+}
+.article-comments-section{
+    @padding:20px;
+    margin:20px 0 30px 0;
+    .article-comments-title{
+        @title-height:50px;
+        background: @info-color;
+        height:@title-height;
+        line-height: @title-height;
+        padding:0  @padding;
+        color:#fff;
+        .title{
+            font-size:18px;
+            margin:0;
+            display: flex;
+            align-items: center;
+            i{
+                margin-right: 10px;
+            }
+            span{
+                flex:1
+            }
+            .comment-btn{
+                padding: 2px 7px;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                line-height: 1.5;
+                color:#fff;
+                font-size:14px;
+                background-color: @warning-color;
+                text-align: right;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+    .not-comments{
+        text-align: center;
+        padding: 60px 0;
+        color:#fff;
+    }
+    .article-comments-lists{
+        .commentListAnimate{
+            animation:  commentListAnimate .5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        .item{
+            background: #fff;
+            // box-shadow: 1px 0 0 0 @border-color, 0 1px 0 0 @border-color, 1px 1px 0 0 @border-color, 1px 0 0 0 @border-color inset, 0 1px 0 0 @border-color inset;
+            position: relative;
+            padding:@padding;
+            border-bottom:1px solid @border-color;
+            .comments-header{
+                display: flex;
+                align-items: center;
+                .img{
+                    width:35px;
+                    height:35px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .name{
+                    padding-left: 15px;
+                    flex:1;
+                }
+            }
+            .comments-content{
+                display: flex;
+                margin-bottom: 6px;
+                p{
+                    flex:1;
+                    margin:10px 0 ;
+                    white-space: pre-wrap;
+                    line-height: 25px;
+                }
+            }
+            .comments-footer{
+                display: flex;
+                justify-content: space-between;
+                .device-content{
+                    i{
+                        vertical-align: middle;
+                    }
+                    .device{
+                        margin-left:5px;
+                    }
+                }
+                .like{
+                    cursor: pointer;
+                    transition: color .3 ease-in-out;
+                    &.active{
+                        color:@primary-color;
+                    }
+                    @media screen and (min-width:768px){
+                        &:hover{
+                            color:@primary-color;
+                        }
+                    }
+      
+                    i{
+                        vertical-align: middle;
+                    }
+                    .like-num{
+                        margin-left:5px;
+                    }
+                }
+                .time{
+                    color:#444;
+                    flex:1;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+    .comment-form{
+        fieldset{
+            border:none;
+            margin: 0 auto 7px auto;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            input{
+                width: 100%;
+                display: block;
+            }
+            input,textarea{
+                padding: 4px 10px;
+                outline: none;
+                flex:1;
+            }
+            select{
+                padding: 4px 6px;
+                width: 100%;
+            }
+        }
+        fieldset:last-of-type{
+            padding-top: 20px;
+        }
+        .comment-textarea{
+            resize: none;
+            width:100%;
+            height:6rem;
+            overflow-y: auto;
+        }
+    }

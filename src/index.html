@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh">
+<!-- 链接：https://www.zhihu.com/question/29962541/answer/46358299 -->
+<!--
+                         ::
+                        :;J7, :,                        ::;7:
+                        ,ivYi, ,                       ;LLLFS:
+                        :iv7Yi                       :7ri;j5PL
+                       ,:ivYLvr                    ,ivrrirrY2X,
+                       :;r@Wwz.7r:                :ivu@kexianli.
+                      :iL7::,:::iiirii:ii;::::,,irvF7rvvLujL7ur
+                     ri::,:,::i:iiiiiii:i:irrv177JX7rYXqZEkvv17
+                  ;i:, , ::::iirrririi:i:::iiir2XXvii;L8OGJr71i
+                :,, ,,:   ,::ir@mingyi.irii:i:::j1jri7ZBOS7ivv,
+                   ,::,    ::rv77iiiriii:iii:i::,rvLq@huhao.Li
+               ,,      ,, ,:ir7ir::,:::i;ir:::i:i::rSGGYri712:
+             :::  ,v7r:: ::rrv77:, ,, ,:i7rrii:::::, ir7ri7Lri
+            ,     2OBBOi,iiir;r::        ,irriiii::,, ,iv7Luur:
+          ,,     i78MBBi,:,:::,:,  :7FSL: ,iriii:::i::,,:rLqXv::
+          :      iuMMP: :,:::,:ii;2GY7OBB0viiii:i:iii:i:::iJqL;::
+         ,     ::::i   ,,,,, ::LuBBu BBBBBErii:i:i:i:i:i:i:r77ii
+        ,       :       , ,,:::rruBZ1MBBqi, :,,,:::,::::::iiriri:
+       ,               ,,,,::::i:  @arqiao.       ,:,, ,:::ii;i7:
+      :,       rjujLYLi   ,,:::::,:::::::::,,   ,:i,:,,,,,::i:iii
+      ::      BBBBBBBBB0,    ,,::: , ,:::::: ,      ,,,, ,,:::::::
+      i,  ,  ,8BMMBBBBBBi     ,,:,,     ,,, , ,   , , , :,::ii::i::
+      :      iZMOMOMBBM2::::::::::,,,,     ,,,,,,:,,,::::i:irr:i:::,
+      i   ,,:;u0MBMOG1L:::i::::::  ,,,::,   ,,, ::::::i:i:iirii:i:i:
+      :    ,iuUuuXUkFu7i:iii:i:::, :,:,: ::::::::i:i:::::iirr7iiri::
+      :     :rk@Yizero.i:::::, ,:ii:::::::i:::::i::,::::iirrriiiri::,
+       :      5BMBBBBBBSr:,::rv2kuii:::iii::,:i:,, , ,,:,:i@petermu.,
+            , :r50EZ8MBBBBGOBBBZP7::::i::,:::::,: :,:,::i;rrririiii::
+                :jujYY7LS0ujJL7r::,::i::,::::::::::::::iirirrrrrrr:ii:
+             ,:  :@kevensun.:,:,,,::::i:i:::::,,::::::iir;ii;7v77;ii;i,
+             ,,,     ,,:,::::::i:iiiii:i::::,, ::::iiiir@xingjief.r;7:i,
+          , , ,,,:,,::::::::iiiiiiiiii:,:,:::::::::iiir;ri7vL77rrirri::
+           :,, , ::::::::i:::i:::i:i::,,,,,:,::i:i:::iir;@Secbone.ii:::
+       
+  -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="author" content="李金珂, https://github.com/lijinke666" />
+  <meta name="site" content="https://www.lijinke.cn" />
+  <meta name="description" content="李金珂的小屋,李金珂小朋友的个人网站,www.lijinke.cn,React,Nodejs博客,支持PWA" />
+  <meta name="renderer" content="webkit">
+  <meta name="baidu-site-verification" content="8jlu9GSBDa" />
+  <meta name="force-rendering" content="webkit">
+  <meta name="hostname" content="lijinke.cn">
+  <meta name="expected-hostname" content="lijinke.cn">
+  <meta name="keywords" content="lijinke.cn,www.lijinke.cn,lijinke,金珂,李金珂,李金珂的小屋,css3,javascript,博客,HTML5,web,web前端,js,React,nodejs,gitHub"
+  />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+  <meta name="Alipay:title" content="李金珂的小屋">
+  <meta name="Alipay:imgUrl" content="/logos/logo_512.png">
+  <meta name="Alipay:desc" content="李金珂的小屋。">
+  <!-- PWA 相关-->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="李金珂的小屋" />
+  <meta name="theme-color" content="#31c27c" />
+  <meta name="icon" content="/logos/logo_192.png">
+  <meta name="apple-touch-icon" content="/logos/logo_192.png">
+  <link ref="apple-touch-startup-image" href="/logos/logo_512.png" />
+  <link rel="manifest" href="/manifest.json">
+  <title>李金珂的小屋</title>
+  <style>
+    #lijinke-web-loading {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      top: 0;
+      background-color: #31c27c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      perspective: 10000px;
+      transform-origin: 50% 50%;
+      transform-style: preserve-3d;
+    }
+
+    #loading-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: rotate cubic-bezier(.24, .14, .48, 1.31) .7s forwards;
+    }
+
+    #svg {
+      width: 670px;
+      height: 300px;
+    }
+
+    @media screen and (max-width:768px) {
+      transform-origin: 50% 50%;
+      transform: scale(0.45)
+    }
+
+    .loading-path {
+      stroke-width: 3px;
+      stroke-linecap: round;
+      fill: none;
+      stroke-dashoffset: 2000;
+      stroke-dasharray: 2000;
+      stroke: #fff;
+      animation: path 6s cubic-bezier(.42, .1, .18, .94) infinite;
+    }
+
+    @keyframes path {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: scale(0) translate3d(0, 0, -1000px)
+      }
+      70% {
+        transform: scale(1.2) translate3d(0, 0, -200px)
+      }
+      to {
+        transform: scale(1) translate3d(0, 0, 0)
+      }
+    }
+  </style>
+  <!--[if lte IE 10]>
+      <p>
+        <strong>珍爱生命,远离IE :(</strong>
+        <a href="http://www.googlechromer.cn/">请用谷歌浏览器 :)</a>
+      </p>
+    <![endif]-->
+</head>
+
+<body>
+  <div id="root">
+    <div id="lijinke-web-loading">
+      <div id="loading-content">
+        <svg id="svg">
+          <path class="loading-path" d="M50 50
+                  L50 50
+                  A15 2 0 1 0 110 30
+                  L105 100
+                  v -50
+                  L 70 85
+                  L141 70
+                  L104 120
+                  v 100
+                  A 1 2 0 0 1 69 204
+                  L31 167
+                  L196 127">
+          </path>
+          <path class="loading-path" d="M300 50
+              L 210 136
+              M257 89
+              L 370 126
+              M 245 155
+              h 70
+              M 245 175
+              h 70
+              M 275 155
+              v 90
+              M 257 232
+              L 228 213
+              M 320 200
+              l 50 -30
+              M 205 245
+              h 160">
+          </path>
+          <path class="loading-path" d="M380 50
+              h 90
+              h -45
+              v 70
+              h -50
+              h 100
+              h -50
+              v 80
+              L 280 263
+              L 532 157
+              A 4 3 0 0 1 666 56
+              L 580 130
+              v 30
+              h 30
+              v -25
+              h -30
+              h 30
+              v 150
+              L 545 222">
+          </path>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <noscript>JavaScript 是世界上最好的语言!!!</noscript>
+</body>
+<!-- webpush -->
+<script src="https://www.gstatic.com/firebasejs/5.4.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDJVMMUs9pigajODboz8W5xYpVZcfksyaE",
+    authDomain: "blog-f6b06.firebaseapp.com",
+    databaseURL: "https://blog-f6b06.firebaseio.com",
+    projectId: "blog-f6b06",
+    storageBucket: "blog-f6b06.appspot.com",
+    messagingSenderId: "103809830106"
+  };
+  firebase.initializeApp(config);
+</script>
+<!--百度统计 -->
+<script>
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?29aa348f4a98a952a9c9edc93d380230";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</html>

@@ -1,0 +1,19 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+.photo-main{
+    margin:120px auto 0 auto;
+}
+.photo-controller{
+        @media screen and (min-width:768px){
+            .image-gallery-slide{
+                background: transparent;
+            }
+            .image-gallery-image{
+                .center();
+                img{
+                    width: auto;
+                    max-height: calc(~'100vh - 200px')
+                }
+        }
+    }
+}

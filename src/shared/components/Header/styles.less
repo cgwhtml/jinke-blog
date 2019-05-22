@@ -1,0 +1,63 @@
+@import "~styles/vars.less";
+header{
+    height:@header-height;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    // border-bottom: 1px solid rgba(30,35,42,.06);
+    // box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
+    box-shadow:0 1px 3px 0 rgba(0,34,77,.1);
+    animation: headerAnimate .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-clip: content-box;
+    position: relative;
+    z-index: 66;
+    .left,.right{
+        flex-basis: 15%;
+        color:@text-color;
+        line-height: @header-height;
+        cursor: pointer;
+        visibility: hidden;
+        @media screen and (max-width:768px){
+            visibility: visible
+         }
+    }
+    .left{
+        text-align: center;
+        i{
+            &:active{
+                color:@primary-color;
+            }
+        font-size:20px;
+        }
+    }
+    .right{
+        text-align: right;
+    }
+    .center{
+        height:@header-height;
+        line-height: @header-height;
+        text-align: center;
+        flex:1;
+        .title{
+            font-size:18px;
+            color:@primary-color;
+            line-height: @header-height;
+            font-weight: 500;
+            margin:0;
+            padding: 0;
+            text-shadow: 0 0 1px rgba(0,0,0,.2);
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes headerAnimate{
+    from{
+        transform: translate3d(0,-@header-height,0)
+    }
+    to{
+        transform: translate3d(0,0,0)
+    }
+}

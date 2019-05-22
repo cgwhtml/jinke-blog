@@ -1,0 +1,112 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+.jk-message{
+    @animate-time:.45s;
+    position: fixed;
+    z-index: 999;
+    pointer-events:none;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .jk-message-notice-content{
+        .clearfix();
+        width:300px;
+        max-height: 80%;
+        @media screen and (max-width:768px){
+            min-width: 180px;
+            width:auto !important;
+        }
+        min-height: 30px;
+        padding: 5px 25px;
+        border-radius: 4px;
+        box-shadow: 0 2px 12px rgba(0,0,0,.15);
+        background: #fff;
+        display:inline-block;
+        pointer-events: all;
+        text-align: center;
+        &.message-open{
+            animation: messageAnimateOpen @animate-time cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        &.message-close{
+            animation: messageAnimateClose @animate-time cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .jk-message-custom-content{
+            &.message-info{
+                i{
+                    color:@info-color
+                }
+            }
+            &.message-error{
+                i{
+                    color:@error-color
+                }
+            }
+            &.message-success{
+                i{
+                    color:@success-color
+                }
+            }
+            &.message-warning{
+                i{
+                    color:@warning-color
+                }
+            }
+            
+            &.message-loading{
+                i{
+                    display: block;
+                    animation: messageLoadingAnimate  1.3s cubic-bezier(0.175, 0.885, 0.32, 1) infinite;
+                    color:@loading-color
+                }
+            }
+            .icon{
+                i{
+                    font-size: 45px;
+                    @media screen and (max-width:768px){
+                        font-size:25px
+                    }
+                }
+            }
+            .text{
+                color:@text-color;
+                font-size: 24px;
+                @media screen and (max-width:768px){
+                    font-size:16px
+                }
+            }
+        }
+    }
+    @keyframes messageAnimateClose{
+        from {
+            opacity: 1;
+            transform: translate3d(0,0,0);
+        }
+        to{
+            opacity: 0;
+            transform: translate3d(0,-100px,0); 
+        }
+    }
+    @keyframes messageAnimateOpen{
+        from {
+            opacity: 0;
+            transform: translate3d(0,-100px,0);
+        }
+        to{
+            opacity: 1;
+            transform: scale(1) translate3d(0,0,0); 
+        }
+    }
+    @keyframes messageLoadingAnimate{
+        from{
+            transform: translate(100px)
+        }
+        to{
+            transform: rotate(360deg)
+        }
+    }
+}

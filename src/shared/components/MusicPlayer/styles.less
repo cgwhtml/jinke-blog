@@ -1,0 +1,194 @@
+@import "~styles/mixin.less";
+@import "~styles/vars.less";
+.music-player{
+    &-audio{
+        .hidden();
+    }
+    .jinke-modal-mask{
+        z-index: 999;
+    }
+    .group{
+        i{
+            font-size:25px;
+            color:rgba(255, 255, 255, 0.6);
+        }
+        @media screen and (max-width: 320px){
+            i{
+                font-size:20px;
+            }
+        }
+    }
+    &-panel{
+        box-shadow: 0 0 10px rgba(255,255,255,.1);
+        @panel-height:@music-player-height;
+        position: fixed;
+        width:100%;
+        bottom:0;
+        left:0;
+        color:#fff;
+        height:@panel-height;
+        background-color:rgba(0,0,0,.7);
+        padding: 6px 20px;
+        box-shadow:0 1px 20px rgba(0,0,0,.3);
+        .panel-content{
+            padding: 4px 20px 0 20px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            .img-rotate{
+                    animation: imgRotate 15s linear infinite;
+            }
+            .hide-panel,.upload-music{
+                flex-basis:10%;
+                cursor: pointer;
+                margin-left:15px;
+                margin-top: 5px;
+            }
+            }
+        }
+    .translate{
+        animation: translate .2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards
+    }
+        .scale{
+        animation: scaleTo .2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards
+    }
+}
+
+.upload-music-content{
+    @audio-show-width:100px;
+    @audio-show-height:@audio-show-width;
+    i{
+        margin-right:10px;
+        font-size:14px;
+        vertical-align: middle;
+    }
+    .audio-img-show{
+        width:    @audio-show-width;
+        height:    @audio-show-height;
+        background-color: @bg-color;
+        border:1px solid @border-color;
+        overflow: hidden;
+        margin:0 auto 10px auto;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255,255,255,.4);
+        .audio-img-content{
+            position: relative;
+            &::before{
+                content:"";
+                display: block;
+                padding-top: 100%;
+            }
+        }
+        .audio-img{
+            width:100%;
+            height:100%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+    }
+    .audio-img-size{
+        position: absolute;
+        left:@audio-show-width +20;
+        bottom:0;
+    }
+}
+    .audio-desc-modal{
+        input,textarea{
+            display: flex;
+            flex:1;
+            width:100%;
+            resize:none;
+            outline: none;
+            display: block;
+            padding: 5px 10px;
+            margin-top: 7px;
+        }
+        textarea{
+            height: 100px;
+            overflow-y: auto;
+        }
+    }
+    .upload-music-modal{
+        &.drag-active{
+            border:5px dashed rgba(255,255,255,.65);
+            background-color: rgba(0,0,0,.7);
+            .transition()
+        }
+        .upload-music-progress-mask{
+            background: rgba(0,0,0,0.5);
+            width:100%;
+            height:100%;
+            position: absolute;
+            border-radius: 10px;
+            top:0;
+            left:0;
+            z-index:1000;
+            .center();
+            flex-direction: column;
+            animation: scaleTo .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            color:#fff;
+            .progress{
+                color:@primary-color;
+            }
+        }
+    }
+    .audio-desc-content-modal{
+        .name{
+            text-align: center;
+        }
+        .desc{
+            text-indent: 2em;
+        }
+    }
+@keyframes scale{
+    from{
+        transform: scale(0)
+    }
+    50%{
+        opacity: .6;
+        transform: scale(1.5)
+    }
+    to{
+     opacity: 0;
+        transform: scale(2)
+    }
+
+}
+@keyframes scaleTo{
+    from{
+        transform: scale(0)
+    }
+    to{
+        transform: scale(1)
+    }
+
+}
+@keyframes imgRotate{
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+@keyframes translate{
+    from{
+        transform: translate3d(100%,0,0)
+    }
+    to{
+        transform: translate3d(0,0,0)
+    }
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    margin-top: -2px;
+    background: @primary-color; 
+    border-radius: 50%;
+    box-shadow: 0 .125em .125em #3b4547; 
+    cursor: pointer;
+                        
+}

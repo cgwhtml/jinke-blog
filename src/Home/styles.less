@@ -1,0 +1,203 @@
+@import "~styles/vars.less";
+@import "~styles/mixin.less";
+@translate:300px;
+.feature{
+    height: calc(~"100vh - @{header-height} - @{music-player-height}");
+    .center();
+    width:100%;
+    padding: 0 15px;
+    .feature-list{
+        width:@main-width;
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        perspective: 1200px;
+        transform-origin: 50% 50%;
+        transform-style: preserve-3d;
+        &.one-year {
+            &,
+            .item{
+                animation: none !important
+            }
+        }
+        .item{
+            transform-style: preserve-3d;
+            flex-basis: 24%;
+            height: calc(~"100vh - 200px");
+            max-height: calc(~"100vh - 100px");
+            padding: 20px 30px;
+            .transition(.75s);
+            position: relative;
+            color:#fff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: drop 4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            &::before{
+                content:"";
+                position: absolute;
+                overflow: hidden;
+                height:1300px;
+                width:20px;
+                left:-380px;
+                top:-300px;
+                transform: skewX(-45deg);
+                background-image: -webkit-linear-gradient(
+                    left, 
+                    rgba(255, 255, 255, 0) 
+                    0,
+                rgba(255, 255, 255, 0.2) 
+                50%,
+                rgba(255, 255, 255, 0) 
+                100%);
+            }
+            &:hover{
+                box-shadow: 0 5px 10px rgba(0,0,0,.2);
+                transform: translate3d(0,0,10px);
+                &::before{
+                    transition:left 2s;
+                    left:820px;
+                }
+                .line{
+                    transform: rotate(-53deg) translate3d(20px,0,0)
+                }
+                .title{
+                    transform: translate3d(0,-15px,0);
+                }
+                .text{
+                    transform: translate3d(15px,0px,0)
+                }
+            }
+            .icon-content{
+                display: flex;
+                padding-bottom: 10px;
+                justify-content: flex-end;
+                align-content: center;
+                @media screen and (max-width:768px){
+                    i{
+                        font-size:25px !important;
+                    }
+                }
+                i{
+                    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                    font-size:60px;
+                }
+            }
+            .line{
+                width: 82%;
+                height: 1px;
+                background: #fff;
+                display: inline-flex;
+                box-shadow: 0 1px 1px rgba(0,0,0,.1);
+                transform: rotate(-53deg);
+                align-self: flex-end;
+                margin-top: 45%;
+                .transition(.6s)
+            }
+            .info{
+                .title,.text{
+                    .transition(.6s);
+                    font-weight: 300;
+                }
+                    .title{
+                        font-size:36px;
+                        text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                    }
+                    @media screen and (max-width:768px){
+                        .title{
+                            font-size:22px;
+                        }
+                        .text{
+                            max-width: 20px;
+                            margin: 0 auto;
+                            text-align: -webkit-center;
+                            font-size:14px;
+                        }
+                    }
+                    .text{
+                        text-shadow: 0 1px 1px rgba(0,0,0,.1);
+                        font-size: 16px; 
+                    }
+                }
+            a{
+                position: absolute;
+                left:0;
+                top:0;
+                width: 100%;
+                height:100%;
+            }
+        }
+        .item:first-of-type{
+            animation: itemLeft .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            .btn-hover(@primary-color,6%)
+        }
+        .item:nth-of-type(2),
+        .item:nth-of-type(3){
+            animation: itemCenter .5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        }
+        .item:last-of-type{
+            .btn-hover(@warning-color,6%);
+            animation: itemRight .5s cubic-bezier(0.165, 0.84, 0.44, 1)
+        }
+        .item:nth-of-type(2){
+            .btn-hover(@info-color,6%)
+        }
+        .item:nth-of-type(3){
+            .btn-hover( @success-color,6%)
+        }
+
+    @keyframes drop {
+        0%{
+            transform: translate3d(0,0,0);
+            opacity: 1;
+        }
+        10%,30%,50%,70%{
+            transform: rotate(5deg) translate3d(0,10px,0)
+        }
+        20%,40%,60%,80%{
+            transform: rotate(-5deg) translate3d(-10px,0,0)
+        }
+        90%{
+            opacity: 1;
+            transform: rotate(0deg) translate3d(0,-100px,0)
+        }
+        95%,100%{
+            opacity: 0;
+            transform: translate3d(0,150%,0)
+        }
+    }
+    @keyframes itemLeft{
+        from{
+            opacity: 0;
+            transform: translate3d(-@translate,0,0)
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+    }
+    @keyframes itemCenter{
+        from{
+            opacity: 0;
+            transform: translate3d(0,0,-1000px)
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+    }
+    @keyframes itemRight{
+        from{
+            opacity: 0;
+            transform: translate3d(@translate,0,0)
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+    }
+}
+
+}

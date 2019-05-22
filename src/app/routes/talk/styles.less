@@ -1,0 +1,249 @@
+@import "~styles/vars.less";
+.talk{
+    padding: 20px 10px 40px 10px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    .talk-header{
+        flex-basis: 15%;
+        >h2{
+            color:@primary-color;
+        }
+        >p{
+            color:#fff;
+        }
+        .userNum,.username{
+            margin-left: 5px;
+            color:#fff;
+            padding: 2px 10px;
+            background-color: @primary-color;
+            border-radius: 15px;
+        }
+        .name-content{
+            margin-left:10px;
+        }
+    }
+    .talk-section-wrap{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex:1;
+        height: 400px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,.4);
+        padding: 15px 0;
+        margin-bottom: 20px;
+        height: calc(~"100vh - 255px");
+        // @media screen and (max-width:768px){
+        //     height:400px !important;
+        // }
+        .user-join-tip{
+            @tip-height:30px;
+            position: absolute;
+            color:#fff;
+            left:0;
+            top:0;
+            width: 100%;
+            z-index: 99;
+            height: @tip-height;
+            line-height: @tip-height;
+            text-align: center;
+            background: @warning-color;
+            animation: userJoinTip .3s cubic-bezier(.55,-0.09,.87,.27);
+            @keyframes userJoinTip{
+                from {
+                    transform: translate3d(0,-@tip-height,0)
+                }
+                to{
+                    transform: translate3d(0,0,0)
+                }
+            }
+        }
+    .talk-section{
+        flex:1;
+        // box-shadow: 0 0 10px rgba(255,255,255,1);
+        border-radius: 10px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;       //ios 下 有回弹效果
+        overflow-x: hidden;
+        padding: 0 20px;
+        font-size:14px;
+        position: relative;
+        z-index:1;
+        color:#fff;
+        height:100%;
+        ::-webkit-scrollbar{
+            width: 8px;
+            height:8px;
+            background-color: #f5f5f5;
+        }
+        /*定义滚动条的轨道，内阴影及圆角*/
+        ::-webkit-scrollbar-track{
+            border-radius: 10px;
+            background-color: #f5f5f5;
+        }
+        /*定义滑块，内阴影及圆角*/
+        ::-webkit-scrollbar-thumb{
+            /*width: 10px;*/
+            height: 20px;
+            border-radius: 10px;
+            background-color:@primary-color;
+            opacity: 0.5;
+        }
+        .init{
+            text-align: center;
+            margin: 0 0 20px 0;
+            font-size:12px;
+            &.connect-success{
+                color:@primary-color;
+            }
+            i{
+                font-size:12px;
+                margin-right:5px;
+                vertical-align: middle;
+            }
+        }
+
+    }
+    }
+    @message-animate-time:.2s;
+    .message-animte-right{
+        animation:messageAnimateRtoL @message-animate-time cubic-bezier(.55,-0.09,.87,.27) forwards;
+    }
+    .message-animte-right{
+        animation:messageAnimateRtoL @message-animate-time cubic-bezier(.55,-0.09,.87,.27) forwards;
+    }
+    .message{
+        color:#FFF;
+        background:@primary-color;
+        padding: 5px 20px;
+        border-radius: 20px;
+        margin: 2px 0 20px 0;
+        text-align: center;
+        min-width: 100px;
+        clear: both;
+        position: relative;
+        @media screen and (max-width:768px){
+            padding: 3px 15px;
+        }
+        p{
+        margin: 0;
+        padding: 0;
+        }
+        p:first-of-type(1){
+            margin-bottom: .6rem;
+        }
+        .message-info{
+            background: #FFF;
+            color:@primary-color;
+            border-radius: 2em;
+            padding: 0 .3rem;
+            margin-right: .5rem;
+            @media screen and (max-width:768px){
+                font-size:12px;
+            }
+        }
+        .message-time{
+            @media screen and (max-width:768px){
+                font-size:10px;
+            }
+        }
+    }
+    .loading{
+        position: fixed;
+        top:0;
+        left:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height:100%;
+        background-color: rgba(0,0,0,.6);
+        color:#FFF;
+        text-align: center;
+    }
+    .connectSuccessTip{
+        width: 60%;
+        height: 2rem;
+        line-height: 2rem;
+        border-radius: 2em;
+        position: absolute;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        margin:auto;
+        background-color: @warning-color;
+        text-align: center;
+        transform: scale(0);
+        animation:connectSuccessTip .8s cubic-bezier(.55,-0.09,.87,.27) forwards;
+        color:#FFF;
+    }
+    .pull-left{
+        float: left;
+    }
+    .pull-right{
+        float:right;
+    }
+    @keyframes connectSuccessTip{
+        from{
+            transform:scale(0) translate3d(0,-100px,-200px)
+        }
+        to{
+            transform:scale(1) translate3d(0,100px,0);
+        }
+    }
+    @keyframes messageAnimateRtoL{
+        from{
+            opacity: 0;
+            transform: translate3d(100px,0,0)
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+    }
+    @keyframes messageAnimateLtoR{
+        from{
+            opacity: 0;
+            transform: translate3d(-100px,0,0)
+        }
+        to{
+            opacity: 1;
+            transform: translate3d(0,0,0)
+        }
+    }
+
+}
+.talk ~ .talk-footer{
+    flex-basis: 7%;
+    display: flex;
+    margin-top:10px;
+    justify-content: space-between;
+    width:100%;
+    position: fixed;
+    left:0;
+    bottom:0;
+    .inp-message{
+        height: 100%;
+        flex-basis: 69.5%;
+        padding: 9px 10px;
+        height: 42px;
+        outline: none;
+    }
+    .btn-send,.btn-send-disabled{
+        flex-basis: 30%;
+        height:100%;
+        font-size:16px;
+        word-spacing: 3px;
+        line-height: 1.5;
+    }
+    .btn-send{
+        border:1px solid @primary-color;
+    }
+    .btn-send-disabled{
+        border:1px solid @disabled-color;
+    }
+    .inp-message,.btn-send,.btn-send-disabled{
+        border-radius: 0
+    }
+}

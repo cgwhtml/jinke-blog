@@ -1,0 +1,163 @@
+@import "shared/styles/vars.less";
+@import "shared/styles/font.less";
+html,
+body {
+    height:100%;
+    -webkit-tap-highlight-color: rbga(0, 0, 0, 0); //去掉有些dom点击之后又蓝框的背景
+}
+
+#root {
+    background: url("../images/banner1.jpg") no-repeat;
+    background-size: cover;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+#nprogress .bar {
+    background: @primary-color  !important;
+}
+
+#nprogress .spinner-icon {
+    border-top-color: @primary-color  !important;
+    border-left-color: @primary-color  !important;
+}
+
+.image-gallery-thumbnail {
+    background-color: #fff;
+    img {
+        width:auto !important;
+        height: 69px
+    }
+}
+
+.react-jinke-music-player {
+    z-index: 999;
+}
+
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    user-select: none;
+    text-size-adjust: none;
+    -webkit-font-smoothing: antialiased
+}
+
+body,
+input,
+select,
+button,
+textarea {
+    font-family: @font-family;
+    line-height: 1.6;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #444;
+    font-size: 14px;
+    user-select: none
+}
+
+a:hover,
+a:active {
+    outline: 0;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333;
+}
+
+a:hover {
+    color: #666666;
+}
+
+a:active {
+    color: #666666;
+}
+
+img {
+    vertical-align: top;
+}
+
+fieldset {
+    border: none;
+    margin: 0 auto 10px auto;
+    padding: 0
+}
+
+//文章超链接
+sup {
+    color: @primary-color
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select,
+textarea,
+.inp,
+    {
+    background-color: #fff;
+    border-color: @border-color #ccc @border-color;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: @text-color;
+    border-spacing: 0;
+    border-collapse: separate;
+    height: 36px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2px 10px;
+    &:focus,
+    &:hover {
+        border: 1px solid @primary-color;
+        box-shadow: 0 0 1px 1px @primary-color;
+    }
+    &,
+    &:focus,
+    &:active {
+        transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 选择文字时 */
+
+::-moz-selection {
+    background: @primary-color;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background: @primary-color;
+    color: #fff;
+    text-shadow: none;
+}

@@ -1,0 +1,14 @@
+/node_modules/
+/dist/
+/db/
+.history
+/public/music/
+/public/images/**
+/public/static/
+/public/index.html/
+/public/lijinkeWeb.appcache/
+/server/logs/
+logs
+.vscode
+yarn-error.log
+npm-debug.log
