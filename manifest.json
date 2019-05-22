@@ -5,23 +5,23 @@
   "lang": "cn",
   "icons": [
     {
-      "src": "/logos/logo_48.png",
-      "type": "image/png",
+      "src": "/logos/app.jpeg",
+      "type": "image/jpeg",
       "sizes": "48x48"
     },
     {
-      "src": "/logos/logo_96.png",
-      "type": "image/png",
+      "src": "/logos/app.jpeg",
+      "type": "image/jpeg",
       "sizes": "96x96"
     },
     {
-      "src": "/logos/logo_192.png",
-      "type": "image/png",
+      "src": "/logos/app.jpeg",
+      "type": "image/jpeg",
       "sizes": "192x192"
     },
     {
-      "src": "/logos/logo_512.png",
-      "type": "image/png",
+      "src": "/logos/app.jpeg",
+      "type": "image/jpeg",
       "sizes": "512x512"
     }
   ],
