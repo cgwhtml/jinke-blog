@@ -107,10 +107,10 @@ yarn run restore
 
 ### 本地运行步骤
 
-1. 克隆项目 `git clone https://github.com/lijinke666/lijinkeWeb.git`
+1. 克隆项目 `git clone https://github.com/lijinke666/jinke-blog.git`
 2. 请确保你本地已经安装 `mongodb`, `node.js`, `nodemon` 和 `pm2`
-3. 更改 `config/index.js` 的 `你自己的配置信息`
-3. 切换到目录 `cd lijinkeWeb` 连接数据库 `yarn run connect-db` 然后 拷贝数据库 `yarn run restore`
+3. 更改 `config/index.js` 的 `你自己的相关配置信息`
+3. 切换到目录 `cd jinke-blog` 连接数据库 `yarn run connect-db`
 4. 运行前端 `yarn start` 等待打包 自动打开浏览器 `localhost:6688`
 5. 运行后端 `yarn run dev-server`
 
@@ -129,7 +129,7 @@ const musicSchema = new Schema({
     src: String,            //路径
     cover: String,          //图片路径
     desc:String ,            //描述
-    isShow: {
+    isShow: {                // 发布文章后 默认需要审核 你可以将它改为 false 直接查看
       type:Boolean,
       default:true
     }
